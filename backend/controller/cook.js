@@ -6,4 +6,5 @@ const cook = (req, res, next) => {
     next(err);
   }
 };
+
 module.exports = cook;

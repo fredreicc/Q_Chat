@@ -1,8 +1,9 @@
 const user = require("../models/user");
 const genAuthToken = require("../utils/userAuthToken");
-const { LocalStorage } = require("node-localstorage");
-const localStorage = new LocalStorage("./scratch");
-const public_key = require("../public_key/public_key_generator");
+require("dotenv").config();
+// const { LocalStorage } = require("node-localstorage");
+// const localStorage = new LocalStorage("./scratch");
+// const public_key = require("../public_key/public_key_generator");
 
 const register = async (req, res, next) => {
   try {
@@ -18,11 +19,6 @@ const register = async (req, res, next) => {
 
       users.save();
 
-      let arr = [2];
-      var xx = Math.floor(Math.random() * 10);
-      // let ar=arr[(Math.floor(Math.random() * arr.length))];
-
-      // localStorage.setItem('key', 'value');
       return res
         .cookie("access_token", genAuthToken(users.id, users.name, users.email), {
           httpOnly: true,

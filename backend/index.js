@@ -2,15 +2,16 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 const port = 3000;
-const { LocalStorage } = require("node-localstorage");
-const localStorage = new LocalStorage("./scratch");
+// const { LocalStorage } = require("node-localstorage");
+// const localStorage = new LocalStorage("./scratch");
 app.use(express.json());
 const apiRoutes = require("./routes/apiroutes");
+
+app.use(cookieParser());
 
 app.get("/", async (req, res, next) => {
   res.json({ message: "API running..." });
 });
-app.use(cookieParser());
 
 // mongodb connection
 const connectDB = require("./config/db");

@@ -1,6 +1,6 @@
 const express = require("express");
 const chatroute = require("./chatroute");
-const register = require("./regitserroute");
+const register = require("./registerroute");
 const cookroute = require("./cook");
 
 const router = express.Router();
